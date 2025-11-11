@@ -6,14 +6,28 @@ import img from '../assets/login.jpeg'
 const Register = () => {
     return (
         <div className='container mx-auto relative'>
-            <div className='flex justify-center items-center py-12 '>
-                <img className="w-4xl rounded-2xl object-cover" src={img} alt="" />
+            <div className='flex justify-center items-center py-12 max-sm:px-5'>
+                <img className="w-full h-[550px] rounded-2xl object-cover" src={img} alt="" />
             </div>
-            <div className='w-sm bg-blue-300/50 p-8 rounded-2xl absolute top-25 right-52 border-1 border-white'>
-                <h1 className="text-3xl font-bold text-center">Login</h1>
+            <div className='max-w-md bg-blue-300/50 px-8 py-4 rounded-2xl absolute top-20  right-12 border-1 border-white'>
+                <h1 className="text-3xl font-bold text-center">Register</h1>
                 <form >
                     <fieldset className="fieldset">
+                        <label className="label">Name</label>
+                        <input
+                            type="text"
+                            name="displayName"
+                            className="input rounded-full focus:border-0 focus:outline-gray-200"
+                            placeholder="Name"
+                        />
 
+                        <label className="label">PhotoURL</label>
+                        <input
+                            type="text"
+                            name="photoURL"
+                            className="input rounded-full focus:border-0 focus:outline-gray-200"
+                            placeholder="Photo URL"
+                        />
                         <label className="label">Email</label>
                         <input
                             type="email"
@@ -29,11 +43,8 @@ const Register = () => {
                             className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                             placeholder="Password"
                         />
-                        <div>
-                            <a className="link link-hover">Forgot password?</a>
-                        </div>
-                        <button className="btn text-white mt-4 rounded-full bg-[#18336d]">
-                            Login
+                        <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-blue-800 to-blue-600">
+                            Register
                         </button>
                     </fieldset>
                 </form>
@@ -42,14 +53,14 @@ const Register = () => {
                         className="btn bg-black rounded-full text-white border-[#e5e5e5]"
                     >
                         <FaGoogle />
-                        Login with Google
+                        Register with Google
                     </button>
                     <p className="text-center">
-                        New to our website? Please  <Link
+                        Already have an account? Please <Link
                             className="text-blue-800 underline hover:text-red-500"
-                            to="/register"
+                            to="/login"
                         >
-                            Register
+                            Login
                         </Link>
                     </p>
                 </div>

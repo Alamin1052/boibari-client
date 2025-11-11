@@ -6,10 +6,10 @@ import { FaGoogle } from 'react-icons/fa';
 const Login = () => {
     return (
         <div className='container mx-auto relative'>
-            <div className='flex justify-center items-center py-12 '>
-                <img className="w-4xl rounded-2xl object-cover" src={img} alt="" />
+            <div className='flex justify-center items-center py-12 max-sm:px-5'>
+                <img className="w-full h-[500px] rounded-2xl object-cover" src={img} alt="" />
             </div>
-            <div className='w-sm bg-blue-300/50 p-8 rounded-2xl absolute top-25 right-52 border-1 border-white'>
+            <div className='max-w-sm bg-blue-300/50 p-8 rounded-2xl absolute top-25 right-12  border-1 border-white'>
                 <h1 className="text-3xl font-bold text-center">Login</h1>
                 <form >
                     <fieldset className="fieldset">
@@ -32,7 +32,7 @@ const Login = () => {
                         <div>
                             <a className="link link-hover">Forgot password?</a>
                         </div>
-                        <button className="btn text-white mt-4 rounded-full bg-[#18336d]">
+                        <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-blue-800 to-blue-600">
                             Login
                         </button>
                     </fieldset>

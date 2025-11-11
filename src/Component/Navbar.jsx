@@ -15,19 +15,14 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            <li><NavLink to="/" className="nav-link font-semibold"> Home</NavLink></li>
+                            <li><NavLink to="/all-books" className="nav-link font-semibold"> All books</NavLink></li>
+                            <li><NavLink to="/add-books" className="nav-link font-semibold"> Add Books</NavLink></li>
+                            <li><NavLink to="/my-books" className="nav-link font-semibold"> My Books</NavLink></li>
                         </ul>
                     </div>
                     <Link to="/"><img className="w-8 mr-2" src={logo} alt="" /></Link>
-                    <Link to="/" className=" text-[#18336d] text-xl font-extrabold">Boibari</Link>
+                    <Link to="/" className=" bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent text-xl font-extrabold">Boibari</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -39,7 +34,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className=" btn bg-[#18336d] text-white px-8">Login</Link>
+                    <Link to="/login" className=" btn bg-linear-to-r from-blue-800 to-blue-600 text-white px-8">Login</Link>
                 </div>
             </div>
         </div >
