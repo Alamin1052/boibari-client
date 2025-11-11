@@ -9,7 +9,7 @@ const MainLayOut = () => {
             <section>
                 <Navbar></Navbar>
             </section>
-            <section className='h-screen'>
+            <section className='h-screen bg-[#F9F6F1]'>
                 <Outlet></Outlet>
             </section>
             <section>

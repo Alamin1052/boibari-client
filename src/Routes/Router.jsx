@@ -8,6 +8,7 @@ import UpdateBook from "../Pages/UpdateBook";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
+import MyBooks from "../Pages/MyBooks";
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +29,11 @@ export const router = createBrowserRouter([
                 element: <BookDetails />,
             },
             {
-                path: "/add-book",
+                path: "/my-books",
+                element: <MyBooks />,
+            },
+            {
+                path: "/add-books",
                 element: <AddBook />,
             },
             {

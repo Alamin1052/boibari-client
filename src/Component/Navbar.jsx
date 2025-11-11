@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router';
+import logo from '../assets/logo (3).png'
+import "./nav.css";
 
 const Navbar = () => {
     return (
-        <div>
-            <div className="navbar bg-base-100 shadow-sm">
+        <div className='bg-base-100 container mx-auto'>
+            <div className="navbar ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -23,28 +26,23 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Link to="/"><img className="w-8 mr-2" src={logo} alt="" /></Link>
+                    <Link to="/" className=" text-[#18336d] text-xl font-extrabold">Boibari</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        <li><NavLink to="/" className="nav-link font-semibold"> Home</NavLink></li>
+                        <li><NavLink to="/all-books" className="nav-link font-semibold"> All books</NavLink></li>
+                        <li><NavLink to="/add-books" className="nav-link font-semibold"> Add Books</NavLink></li>
+                        <li><NavLink to="/my-books" className="nav-link font-semibold"> My Books</NavLink></li>
+
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <Link className="btn bg-[#18336d] text-white px-8">Login</Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
