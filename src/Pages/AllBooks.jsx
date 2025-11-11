@@ -4,7 +4,7 @@ const AllBooks = () => {
     return (
         <div className="container mx-auto py-10 px-4">
             {/* Page Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-800 to-blue-500 bg-clip-text text-transparent">
                 All Books
             </h1>
 

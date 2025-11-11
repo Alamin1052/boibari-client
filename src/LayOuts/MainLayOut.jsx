@@ -9,7 +9,7 @@ const MainLayOut = () => {
             <section>
                 <Navbar></Navbar>
             </section>
-            <section className=' bg-[#F9F6F1]'>
+            <section className=' bg-gradient-to-br from-blue-50 to-purple-50'>
                 <Outlet></Outlet>
             </section>
             <section>
