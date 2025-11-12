@@ -1,9 +1,52 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import img from '../assets/login.jpeg'
+import { AuthContext } from '../Context/AuthContext';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+
+    const { createUser, LogInWithGoogle } = use(AuthContext);
+    const navigate = useNavigate();
+
+    // 🔹 Handle register with email/password
+    const handleRegister = (event) => {
+        event.preventDefault();
+        const displayName = event.target.displayName.value;
+        const photoURL = event.target.photoURL.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        const loadingId = toast.loading("Creating user...");
+
+        createUser(email, password, displayName, photoURL)
+            .then((result) => {
+                toast.success("User created successfully!", { id: loadingId });
+                console.log(result.user);
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                toast.error(error.message, { id: loadingId });
+            });
+    };
+
+    // 🔹 Handle Google login
+    const handleGoogleSignIn = () => {
+        const loadingId = toast.loading("Signing in with Google...");
+        LogInWithGoogle()
+            .then((result) => {
+                toast.success("Logged in successfully!", { id: loadingId });
+                console.log(result.user);
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                toast.error(error.message, { id: loadingId });
+            });
+    };
+
     return (
         <div className='container mx-auto relative'>
             <div className='flex justify-center items-center py-12 max-sm:px-5'>
@@ -11,7 +54,7 @@ const Register = () => {
             </div>
             <div className='max-w-md bg-blue-300/50 px-8 py-4 rounded-2xl absolute top-20  right-12 border-1 border-white'>
                 <h1 className="text-3xl font-bold text-center">Register</h1>
-                <form >
+                <form onSubmit={handleRegister}>
                     <fieldset className="fieldset">
                         <label className="label">Name</label>
                         <input
@@ -50,6 +93,7 @@ const Register = () => {
                 </form>
                 <div className='flex flex-col justify-center text-center'>
                     <button
+                        onClick={handleGoogleSignIn}
                         className="btn bg-black rounded-full text-white border-[#e5e5e5]"
                     >
                         <FaGoogle />
@@ -68,5 +112,4 @@ const Register = () => {
         </div >
     );
 };
-
 export default Register;

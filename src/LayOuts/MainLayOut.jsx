@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Component/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Component/Footer';
+import { Toaster } from 'react-hot-toast';
 
 const MainLayOut = () => {
     return (
@@ -15,7 +16,7 @@ const MainLayOut = () => {
             <section>
                 <Footer></Footer>
             </section>
-
+            <Toaster/>
         </div>
     );
 };

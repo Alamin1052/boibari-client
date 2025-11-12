@@ -34,7 +34,62 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className=" btn bg-linear-to-r from-blue-800 to-blue-600 text-white px-8">Login</Link>
+                    {user ? (
+                        <div className="dropdown dropdown-end z-50">
+                            <div
+                                tabIndex={0}
+                                role="button"
+                                className="btn btn-ghost btn-circle avatar"
+                            >
+                                <div className="w-9 border-2 border-gray-300 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        referrerPolicy="no-referrer"
+                                        src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                                    />
+                                </div>
+                            </div>
+                            <ul
+                                tabIndex="-1"
+                                className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+                            >
+                                <div className=" pb-3 border-b border-b-gray-200">
+                                    <li className="text-sm font-bold">{user.displayName}</li>
+                                    <li className="text-xs">{user.email}</li>
+                                </div>
+                                <li className="mt-3">
+                                    <Link to={"/profile"}>
+                                        <FaUser /> Profile
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link to={"/my-models"}>
+                                        My Models
+                                    </Link>
+                                </li>
+
+
+
+                                <li>
+                                    <button
+                                        onClick={signOutUser}
+                                        className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                                    >
+                                        <IoLogOut /> Logout
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <Link
+                            to={"/auth/login"}
+                            className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
+                        >
+                            {" "}
+                            <IoLogIn /> Login
+                        </Link>
+                    )}
                 </div>
             </div>
         </div >

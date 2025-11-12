@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { use } from 'react';
 import img from '../assets/login.jpeg'
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../Context/AuthContext';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+
+    const { LogInUser, LogInWithGoogle } = use(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
+
+    const handleLogIn = (event) => {
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        console.log(email, password);
+        LogInUser(email, password)
+            .then((result) => {
+                console.log(result.user);
+                event.target.reset();
+                navigate(location.state || "/");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const handleGoogleSignIn = () => {
+        LogInWithGoogle()
+            .then((result) => {
+                console.log(result.user);
+                toast.success('Successfully user login')
+                navigate(location?.state || "/");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     return (
         <div className='container mx-auto relative'>
             <div className='flex justify-center items-center py-12 max-sm:px-5'>
@@ -11,7 +49,7 @@ const Login = () => {
             </div>
             <div className='max-w-sm bg-blue-300/50 p-8 rounded-2xl absolute top-25 right-12  border-1 border-white'>
                 <h1 className="text-3xl font-bold text-center">Login</h1>
-                <form >
+                <form onSubmit={handleLogIn}>
                     <fieldset className="fieldset">
 
                         <label className="label">Email</label>
@@ -39,6 +77,7 @@ const Login = () => {
                 </form>
                 <div className='flex flex-col justify-center text-center'>
                     <button
+                        onClick={handleGoogleSignIn}
                         className="btn bg-black rounded-full text-white border-[#e5e5e5]"
                     >
                         <FaGoogle></FaGoogle>
