@@ -3,7 +3,7 @@ import React from 'react';
 const AddBook = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center py-10 px-4">
-            <div className="w-full max-w-3xl bg-white/60 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-blue-100">
+            <div className="w-full max-w-2xl bg-white/60 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-blue-100">
 
                 <h1 className="text-3xl md:text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
                     Add New Book

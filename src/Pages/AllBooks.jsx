@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const AllBooks = () => {
     return (
@@ -39,9 +40,9 @@ const AllBooks = () => {
                             <td className="px-4 py-3">Classic</td>
                             <td className="px-4 py-3">4.5</td>
                             <td className="px-4 py-3 text-center">
-                                <button className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600 px-3 py-1 rounded-full">
+                                <Link to="/book-details" className="btn btn-sm bg-linear-to-r from-blue-800 to-blue-600 text-white hover:bg-blue-600 px-3 py-1 rounded-full">
                                     View Details
-                                </button>
+                                </Link>
                             </td>
                         </tr>
                     </tbody>
