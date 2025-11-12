@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/logo (3).png'
+import avatar from '../assets/user.png'
 import "./nav.css";
+import { AuthContext } from '../Context/AuthContext';
+import toast from 'react-hot-toast';
+
 
 const Navbar = () => {
+    const { user, LogOutUser } = use(AuthContext);
+
+    const handleLogout = () => {
+        LogOutUser()
+            .then((result) => {
+                // console.log(result);
+                toast.success('Successfully user logout');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
     return (
         <div className=' bg-base-500'>
             <div className="navbar container mx-auto">
@@ -45,7 +62,7 @@ const Navbar = () => {
                                     <img
                                         alt="Tailwind CSS Navbar component"
                                         referrerPolicy="no-referrer"
-                                        src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                                        src={user.photoURL || avatar}
                                     />
                                 </div>
                             </div>
@@ -54,40 +71,25 @@ const Navbar = () => {
                                 className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
                             >
                                 <div className=" pb-3 border-b border-b-gray-200">
-                                    <li className="text-sm font-bold">{user.displayName}</li>
+                                    <li className="text-sm font-bold">{user.displayName || 'New user'}</li>
                                     <li className="text-xs">{user.email}</li>
                                 </div>
-                                <li className="mt-3">
-                                    <Link to={"/profile"}>
-                                        <FaUser /> Profile
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link to={"/my-models"}>
-                                        My Models
-                                    </Link>
-                                </li>
-
-
 
                                 <li>
                                     <button
-                                        onClick={signOutUser}
-                                        className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                                        onClick={handleLogout}
+                                        className="btn btn-xs text-left bg-linear-to-r from-blue-800 to-blue-500 text-white"
                                     >
-                                        <IoLogOut /> Logout
+                                        Logout
                                     </button>
                                 </li>
                             </ul>
                         </div>
                     ) : (
                         <Link
-                            to={"/auth/login"}
-                            className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
-                        >
-                            {" "}
-                            <IoLogIn /> Login
+                            to={"/login"}
+                            className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-blue-800 to-blue-500 px-8 text-white"
+                        >Login
                         </Link>
                     )}
                 </div>
