@@ -1,15 +1,28 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/logo (3).png'
 import avatar from '../assets/user.png'
 import "./nav.css";
 import { AuthContext } from '../Context/AuthContext';
 import toast from 'react-hot-toast';
+import { motion } from "framer-motion";
+import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
+
 
 
 const Navbar = () => {
     const { user, LogOutUser } = use(AuthContext);
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+    useEffect(() => {
+        const html = document.querySelector('html')
+        html.setAttribute("data-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
 
+
+    const handleTheme = (checked) => {
+        setTheme(checked ? "dark" : "light")
+    }
     const handleLogout = () => {
         LogOutUser()
             .then((result) => {
@@ -51,6 +64,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    {/* <input
+                        onChange={(e) => handleTheme(e.target.checked)}
+                        type="checkbox"
+                        defaultChecked={localStorage.getItem('theme') === "dark"}
+                        className="toggle mr-2" /> */}
+                    <motion.button
+                        whileTap={{ scale: 0.9 }}
+                        animate={{ rotate: theme === "dark" ? 180 : 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                        className="p-2 rounded-full bg-blue-500 text-white mx-2 shadow-md"
+                    >
+                        {theme === "light" ? <BsMoonStarsFill size={20} /> : <BsSunFill size={20} />}
+                    </motion.button>
+
                     {user ? (
                         <div className="dropdown dropdown-end z-50">
                             <div

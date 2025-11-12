@@ -68,7 +68,7 @@ const ExtraSection = () => {
             </section>
 
             {/* SECTION 2: Book of the Week */}
-            <section className="py-12 px-4 max-sm:text-center bg-[#f2f6fc]">
+            <section className="py-12 px-4 max-sm:text-center ">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
                     Book of the Week
                 </h2>

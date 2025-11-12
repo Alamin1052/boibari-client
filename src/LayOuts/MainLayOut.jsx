@@ -6,17 +6,17 @@ import { Toaster } from 'react-hot-toast';
 
 const MainLayOut = () => {
     return (
-        <div>
+        <div className='min-h-screen bg-base-200 text-base-content'>
             <section>
                 <Navbar></Navbar>
             </section>
-            <section className=' bg-gradient-to-br from-blue-50 to-purple-50'>
+            <section>
                 <Outlet></Outlet>
             </section>
             <section>
                 <Footer></Footer>
             </section>
-            <Toaster/>
+            <Toaster />
         </div>
     );
 };

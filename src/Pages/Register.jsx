@@ -13,14 +13,14 @@ const Register = () => {
     // 🔹 Handle register with email/password
     const handleRegister = (event) => {
         event.preventDefault();
-        const displayName = event.target.displayName.value;
-        const photoURL = event.target.photoURL.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-
+        if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
+            return toast.error("Password must have 1 uppercase, 1 lowercase & 6+ chars");
+        }
         const loadingId = toast.loading("Creating user...");
 
-        createUser(email, password, displayName, photoURL)
+        createUser(email, password,)
             .then((result) => {
                 toast.success("User created successfully!", { id: loadingId });
                 console.log(result.user);
@@ -32,7 +32,7 @@ const Register = () => {
             });
     };
 
-    // 🔹 Handle Google login
+
     const handleGoogleSignIn = () => {
         const loadingId = toast.loading("Signing in with Google...");
         LogInWithGoogle()
