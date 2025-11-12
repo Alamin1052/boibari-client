@@ -14,7 +14,7 @@ const ExtraSection = () => {
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Genre 1 */}
+
                     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
                         <img
                             src={img1}
@@ -31,7 +31,7 @@ const ExtraSection = () => {
                         </div>
                     </div>
 
-                    {/* Genre 2 */}
+
                     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
                         <img
                             src={img2}
@@ -48,7 +48,7 @@ const ExtraSection = () => {
                         </div>
                     </div>
 
-                    {/* Genre 3 */}
+
                     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
                         <img
                             src={img3}
@@ -68,7 +68,7 @@ const ExtraSection = () => {
             </section>
 
             {/* SECTION 2: Book of the Week */}
-            <section className="py-12 px-4 bg-[#f2f6fc]">
+            <section className="py-12 px-4 max-sm:text-center bg-[#f2f6fc]">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
                     Book of the Week
                 </h2>

@@ -22,7 +22,7 @@
     left: 0;
     height: 4px;
     width: 100%;
-    background: #18336d;
+    background: linear-gradient(to right, #1e40af, rgb(255, 3, 45)), rgb(255, 0, 106);
     background-size: 200% auto;
     transition: all 1.5s;
     transform: translateX(-100%);
@@ -34,6 +34,7 @@
 }
 
 .nav-link.active {
+    background-color: #fcd34d;
     color: #18336d;
 }
 

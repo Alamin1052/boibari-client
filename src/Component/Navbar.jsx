@@ -5,8 +5,8 @@ import "./nav.css";
 
 const Navbar = () => {
     return (
-        <div className='bg-base-100 container mx-auto'>
-            <div className="navbar ">
+        <div className=' bg-base-500'>
+            <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -14,22 +14,22 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-blue-500">
                             <li><NavLink to="/" className="nav-link font-semibold"> Home</NavLink></li>
                             <li><NavLink to="/all-books" className="nav-link font-semibold"> All books</NavLink></li>
                             <li><NavLink to="/add-books" className="nav-link font-semibold"> Add Books</NavLink></li>
                             <li><NavLink to="/my-books" className="nav-link font-semibold"> My Books</NavLink></li>
                         </ul>
                     </div>
-                    <Link to="/"><img className="w-8 mr-2" src={logo} alt="" /></Link>
-                    <Link to="/" className=" bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent text-xl font-extrabold">Boibari</Link>
+                    <Link to="/"><img className="w-8 mr-2 rounded-sm" src={logo} alt="" /></Link>
+                    <Link to="/" className=" bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent text-2xl font-extrabold">Boibari</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><NavLink to="/" className="nav-link font-semibold"> Home</NavLink></li>
-                        <li><NavLink to="/all-books" className="nav-link font-semibold"> All books</NavLink></li>
-                        <li><NavLink to="/add-books" className="nav-link font-semibold"> Add Books</NavLink></li>
-                        <li><NavLink to="/my-books" className="nav-link font-semibold"> My Books</NavLink></li>
+                    <ul className="menu menu-horizontal px-1 text-blue-500 text-md">
+                        <li><NavLink to="/" className="nav-link font-bold "> Home</NavLink></li>
+                        <li><NavLink to="/all-books" className="nav-link font-bold"> All books</NavLink></li>
+                        <li><NavLink to="/add-books" className="nav-link font-bold"> Add Books</NavLink></li>
+                        <li><NavLink to="/my-books" className="nav-link font-bold"> My Books</NavLink></li>
 
                     </ul>
                 </div>

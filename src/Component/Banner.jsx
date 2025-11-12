@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,23 +14,24 @@ const Banner = () => {
     return (
         <div className="w-full">
             <Swiper
-                modules={[Navigation, Pagination]}
+                modules={[Navigation, Pagination, Autoplay]}
                 navigation
                 pagination={{ clickable: true }}
+                autoplay={{ delay: 3000 }}
                 loop
                 className="w-full h-[400px] md:h-[550px]"
             >
                 {slides.map((img, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="relative w-full h-full">
-                            {/* image part */}
+
                             <img
                                 src={img}
                                 alt={`Slide ${idx + 1}`}
                                 className="absolute inset-0 w-full h-full object-cover object-center"
                             />
 
-                            {/* dark overlay + text */}
+
                             <div className="absolute inset-0  flex flex-col items-center justify-center text-center px-4">
                                 <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-800 to-blue-500 bg-clip-text text-transparent">
                                     Welcome to Boibari
