@@ -20,9 +20,6 @@ const Navbar = () => {
     }, [theme])
 
 
-    const handleTheme = (checked) => {
-        setTheme(checked ? "dark" : "light")
-    }
     const handleLogout = () => {
         LogOutUser()
             .then((result) => {
@@ -64,11 +61,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* <input
-                        onChange={(e) => handleTheme(e.target.checked)}
-                        type="checkbox"
-                        defaultChecked={localStorage.getItem('theme') === "dark"}
-                        className="toggle mr-2" /> */}
+
                     <motion.button
                         whileTap={{ scale: 0.9 }}
                         animate={{ rotate: theme === "dark" ? 180 : 0 }}
