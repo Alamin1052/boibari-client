@@ -1,11 +1,16 @@
 import React from 'react';
 import Banner from '../Component/Banner';
+import ExtraSection from '../Component/ExtraSection';
 
 const Home = () => {
     return (
-        <div>
+        <section>
             <Banner />
-        </div>
+            <section className='container mx-auto'>
+                <ExtraSection />
+            </section>
+        </section>
+
     );
 };
 
