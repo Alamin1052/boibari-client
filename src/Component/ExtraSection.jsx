@@ -74,7 +74,7 @@ const ExtraSection = () => {
                 </h2>
 
                 <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl shadow-lg p-6">
-                    {/* Image */}
+
                     <div className="w-1/2 max-sm:w-full flex justify-center">
                         <img
                             src={img4}
@@ -83,7 +83,7 @@ const ExtraSection = () => {
                         />
                     </div>
 
-                    {/* Info */}
+
                     <div className="md:w-1/2 space-y-4">
                         <h3 className="text-2xl font-extrabold text-[#18336d]">
                             The Book Thief

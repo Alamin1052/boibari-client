@@ -1,7 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link, useLoaderData } from "react-router";
 
 const AllBooks = () => {
+    const books = useLoaderData();
+
     return (
         <div className="container mx-auto py-10 px-4">
             {/* Page Title */}
@@ -9,7 +11,7 @@ const AllBooks = () => {
                 All Books
             </h1>
 
-            {/* Responsive Table Wrapper */}
+            {/* Responsive Table */}
             <div className="overflow-x-auto shadow-md rounded-lg">
                 <table className="min-w-full border border-gray-200 bg-white">
                     <thead className="bg-blue-200 text-gray-700">
@@ -22,29 +24,36 @@ const AllBooks = () => {
                             <th className="px-4 py-3 text-center">Actions</th>
                         </tr>
                     </thead>
+
                     <tbody className="divide-y divide-gray-200">
-                        <tr className="hover:bg-blue-50">
-                            <td className="px-4 py-3">1</td>
+                        {books.map((book, index) => (
+                            <tr key={book._id} className="hover:bg-blue-50">
+                                <td className="px-4 py-3">{index + 1}</td>
 
-                            {/* Title + Image */}
-                            <td className="px-4 py-3 flex items-center gap-3">
-                                <img
-                                    src="https://via.placeholder.com/50"
-                                    alt="Book Cover"
-                                    className="w-12 h-16 object-cover rounded"
-                                />
-                                <span className="font-medium">The Great Gatsby</span>
-                            </td>
+                                {/* Title + Image */}
+                                <td className="px-4 py-3 flex items-center gap-3">
+                                    <img
+                                        src={book.coverImage || "https://via.placeholder.com/50"}
+                                        alt={book.title}
+                                        className="w-12 h-16 object-cover rounded"
+                                    />
+                                    <span className="font-medium">{book.title}</span>
+                                </td>
 
-                            <td className="px-4 py-3">F. Scott Fitzgerald</td>
-                            <td className="px-4 py-3">Classic</td>
-                            <td className="px-4 py-3">4.5</td>
-                            <td className="px-4 py-3 text-center">
-                                <Link to="/book-details" className="btn btn-sm bg-linear-to-r from-blue-800 to-blue-600 text-white hover:bg-blue-600 px-3 py-1 rounded-full">
-                                    View Details
-                                </Link>
-                            </td>
-                        </tr>
+                                <td className="px-4 py-3">{book.author}</td>
+                                <td className="px-4 py-3">{book.genre}</td>
+                                <td className="px-4 py-3">{book.rating}</td>
+
+                                <td className="px-4 py-3 text-center">
+                                    <Link
+                                        to={`/book-details/${book._id}`}
+                                        className="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-3 py-2 rounded-full hover:opacity-90 transition"
+                                    >
+                                        View Details
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

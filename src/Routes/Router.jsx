@@ -24,9 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: "/all-books",
                 element: <AllBooks />,
+                loader: () => fetch('http://localhost:3000/all-books')
             },
             {
-                path: "/book-details",
+                path: "/book-details/:id",
                 element: <PrivateRoute>
                     < BookDetails />
                 </PrivateRoute>,
