@@ -12,38 +12,39 @@ const MyBooks = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axiosSecure.get(`/my-books?email=${user.email}`)
-                .then(data => {
+            axiosSecure
+                .get(`/my-books?email=${user.email}`)
+                .then((data) => {
                     console.log('secure books data', data.data);
                     setBook(data.data);
                 })
-                .catch(err => console.error(err));
+                .catch((err) => console.error(err));
         }
     }, [user, axiosSecure]);
 
     const handleDeleteBook = (_id) => {
         Swal.fire({
-            title: "Are you sure?",
+            title: 'Are you sure?',
             text: "You won't be able to revert this!",
-            icon: "warning",
+            icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:3000/books/${_id}`, {
-                    method: 'DELETE'
+                    method: 'DELETE',
                 })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.result.deletedCount) {
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.result?.deletedCount) {
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your book has been deleted.",
-                                icon: "success"
+                                title: 'Deleted!',
+                                text: 'Your book has been deleted.',
+                                icon: 'success',
                             });
-                            const remainingBooks = book.filter(b => b._id !== _id);
+                            const remainingBooks = book.filter((b) => b._id !== _id);
                             setBook(remainingBooks);
                         }
                     });
@@ -53,13 +54,13 @@ const MyBooks = () => {
 
     return (
         <div className="container min-h-screen mx-auto py-10 px-4">
-            <h1 className="text-3xl font-bold text-center mb-6 bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
                 My Books
             </h1>
 
             <div className="overflow-x-auto shadow-md rounded-lg">
-                <table className="min-w-full border border-gray-200 bg-white">
-                    <thead className="bg-blue-200 text-gray-700">
+                <table className="min-w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+                    <thead className="bg-blue-200 dark:bg-gray-800 text-gray-700 dark:text-gray-100">
                         <tr>
                             <th className="px-4 py-3 text-left">#</th>
                             <th className="px-4 py-3 text-left">Book Title</th>
@@ -69,9 +70,12 @@ const MyBooks = () => {
                         </tr>
                     </thead>
 
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                         {book.map((b, index) => (
-                            <tr key={b._id} className="hover:bg-blue-50">
+                            <tr
+                                key={b._id}
+                                className="hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors"
+                            >
                                 <td className="px-4 py-3">{index + 1}</td>
                                 <td className="px-4 py-3">{b.title}</td>
                                 <td className="px-4 py-3">{b.author}</td>

@@ -5,3 +5,10 @@
 * {
   font-family: "Lato", sans-serif;
 }
+
+html.dark,
+body.dark {
+  color-scheme: dark;
+  color: #f3f4f6 !important;
+  background-color: #111827 !important;
+}

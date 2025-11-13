@@ -79,7 +79,7 @@ const AddBook = () => {
                         <label className="block font-semibold mb-1 text-gray-700">Rating</label>
                         <input
                             name='rating'
-                            type="number"
+                            type="text"
                             min="1"
                             max="5"
                             placeholder="Rate (1–5)"

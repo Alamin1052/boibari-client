@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
 
-    const { createUser, LogInWithGoogle } = use(AuthContext);
+    const { createUser, LogInWithGoogle, updateUserProfile } = use(AuthContext);
     const navigate = useNavigate();
 
     // 🔹 Handle register with email/password
@@ -15,6 +15,8 @@ const Register = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
+        const displayName = event.target.displayName.value;
+        const photoURL = event.target.photoURL.value;
         if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
             return toast.error("Password must have 1 uppercase, 1 lowercase & 6+ chars");
         }
@@ -22,6 +24,7 @@ const Register = () => {
 
         createUser(email, password,)
             .then((result) => {
+                updateUserProfile(displayName, photoURL);
                 toast.success("User created successfully!", { id: loadingId });
                 console.log(result.user);
                 navigate('/');

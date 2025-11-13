@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Link, useParams } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
 
 const BookDetails = () => {
     const { id } = useParams();
@@ -13,13 +12,15 @@ const BookDetails = () => {
         fetch(`http://localhost:3000/book-details/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
-                setBook(data);
+                console.log("Fetched book data:", data);
+                setBook(data.result);
                 setLoading(false);
             })
-            .catch((err) => console.error(err));
+            .catch((err) => {
+                console.error(err);
+                setLoading(false);
+            });
     }, [id]);
-
 
     if (loading) {
         return (
@@ -40,13 +41,15 @@ const BookDetails = () => {
     return (
         <div className="min-h-screen bg-gray-50 py-10 px-4">
             <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="w-full h-64 md:h-96 bg-gray-300 overflow-hidden">
+
+                <div className="w-full h-[400px] md:h-96 bg-gray-800 overflow-hidden flex justify-center items-center mx-auto">
                     <img
                         src={book.coverImage}
                         alt={book.title}
-                        className="w-full h-full object-cover"
+                        className="w-[300px] h-[350px] object-fit rounded-md shadow-2xl hover:scale-105 transition-transform"
                     />
                 </div>
+
 
                 <div className="p-6 md:p-10 space-y-4">
                     <h1 className="text-3xl md:text-4xl font-extrabold text-[#18336d]">

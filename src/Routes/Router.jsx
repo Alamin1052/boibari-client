@@ -20,6 +20,7 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
+                loader: () => fetch('http://localhost:3000/latest-books')
             },
             {
                 path: "/all-books",
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>< AddBook /></PrivateRoute>,
             },
             {
-                path: "/update-book",
+                path: "/update-book/:id",
                 element: <UpdateBook />,
             },
             {
