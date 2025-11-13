@@ -11,17 +11,17 @@ const Login = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
 
     const handleLogIn = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
         LogInUser(email, password)
             .then((result) => {
-                console.log(result.user);
+                // console.log(result.user);
                 event.target.reset();
                 navigate(location.state || "/");
             })
@@ -33,7 +33,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         LogInWithGoogle()
             .then((result) => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast.success('Successfully user login')
                 navigate(location?.state || "/");
             })

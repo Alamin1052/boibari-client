@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img1 from "../assets/fantasy.jpg";
 import img2 from "../assets/love.jpg";
 import img3 from "../assets/crime.jpg";
 import img4 from "../assets/feature.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const ExtraSection = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
     return (
-        <div className="">
-            {/* SECTION 1: Top Genres */}
+        <div>
+
             <section className="py-12 px-4 ">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
                     Top Genres
                 </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
                         <img
@@ -67,13 +77,12 @@ const ExtraSection = () => {
                 </div>
             </section>
 
-            {/* SECTION 2: Book of the Week */}
             <section className="py-12 px-4 max-sm:text-center ">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
                     Book of the Week
                 </h2>
 
-                <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl shadow-lg p-6">
+                <div data-aos="fade-up" className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl shadow-lg p-6">
 
                     <div className="w-1/2 max-sm:w-full flex justify-center">
                         <img

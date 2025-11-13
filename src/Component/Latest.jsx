@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Latest = () => {
     const books = useLoaderData();
-
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
     return (
         <div className="my-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">
                 Latest Books
             </h2>
 
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div data-aos="fade-up" className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {books.map((book) => (
                     <div key={book._id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
                         <div className="w-full h-64 bg-gray-800 flex justify-center items-center overflow-hidden">
@@ -36,7 +44,7 @@ const Latest = () => {
 
                             <div className="pt-3">
                                 <Link
-                                    to={`/book/${book._id}`}
+                                    to={`/book-details/${book._id}`}
                                     className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-2 rounded-full font-semibold hover:opacity-90 transition"
                                 >
                                     View Details

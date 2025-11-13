@@ -26,7 +26,7 @@ const Register = () => {
             .then((result) => {
                 updateUserProfile(displayName, photoURL);
                 toast.success("User created successfully!", { id: loadingId });
-                console.log(result.user);
+                // console.log(result.user);
                 navigate('/');
             })
             .catch((error) => {
@@ -41,7 +41,7 @@ const Register = () => {
         LogInWithGoogle()
             .then((result) => {
                 toast.success("Logged in successfully!", { id: loadingId });
-                console.log(result.user);
+                // console.log(result.user);
                 navigate('/');
             })
             .catch((error) => {

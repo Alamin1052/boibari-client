@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,8 +13,17 @@ import img2 from "../assets/banner2.jpg";
 const Banner = () => {
     const slides = [img1, img2];
 
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
+
     return (
-        <div className="w-full">
+        <div data-aos="fade-up" className="w-full">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 navigation

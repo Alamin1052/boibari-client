@@ -20,12 +20,12 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: () => fetch('http://localhost:3000/latest-books')
+                loader: () => fetch('https://boibari-server.vercel.app/latest-books')
             },
             {
                 path: "/all-books",
                 element: <AllBooks />,
-                loader: () => fetch('http://localhost:3000/all-books')
+                loader: () => fetch('https://boibari-server.vercel.app/all-books')
             },
             {
                 path: "/book-details/:id",

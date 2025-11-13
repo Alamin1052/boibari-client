@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import Loading from './Loading';
 
 
 const UpdateBook = () => {
@@ -13,13 +14,13 @@ const UpdateBook = () => {
     const [book, setBook] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/book-details/${id}`)
+        fetch(`https://boibari-server.vercel.app/book-details/${id}`)
             .then(res => res.json())
             .then(data => setBook(data.result))
             .catch(err => console.error(err));
     }, [id]);
 
-    if (!book) return <div className="text-center mt-20">Loading...</div>;
+    if (!book) return <div className="text-center mt-20"><Loading /></div>;
 
 
 

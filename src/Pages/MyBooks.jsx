@@ -33,7 +33,7 @@ const MyBooks = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/books/${_id}`, {
+                fetch(`https://boibari-server.vercel.app/books/${_id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())
