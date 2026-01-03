@@ -47,7 +47,7 @@ const Login = () => {
             <div className='flex justify-center items-center py-12 max-sm:px-5'>
                 <img className="w-full h-[500px] rounded-2xl object-cover" src={img} alt="" />
             </div>
-            <div className='max-w-sm bg-blue-300/50 p-8 rounded-2xl absolute top-25 right-12  border-1 border-white'>
+            <div className='max-w-sm bg-blue-300/50 p-8 rounded-2xl absolute top-25 right-12 max-sm:right-6 border-1 border-white'>
                 <h1 className="text-3xl font-bold text-center">Login</h1>
                 <form onSubmit={handleLogIn}>
                     <fieldset className="fieldset">

@@ -10,6 +10,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import MyBooks from "../Pages/MyBooks";
 import PrivateRoute from "../Context/PrivateRoute";
+import About from "../Pages/About";
 
 export const router = createBrowserRouter([
     {
@@ -29,9 +30,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/book-details/:id",
-                element: <PrivateRoute>
-                    < BookDetails />
-                </PrivateRoute>,
+                element:
+                    < BookDetails />,
             },
             {
                 path: "/my-books",
@@ -40,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path: "/add-books",
                 element: <PrivateRoute>< AddBook /></PrivateRoute>,
+            },
+            {
+                path: 'about',
+                Component: About
             },
             {
                 path: "/update-book/:id",

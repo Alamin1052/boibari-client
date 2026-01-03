@@ -55,7 +55,7 @@ const Register = () => {
             <div className='flex justify-center items-center py-12 max-sm:px-5'>
                 <img className="w-full h-[550px] rounded-2xl object-cover" src={img} alt="" />
             </div>
-            <div className='max-w-md bg-blue-300/50 px-8 py-4 rounded-2xl absolute top-20  right-12 border-1 border-white'>
+            <div className='max-w-md bg-blue-300/50 px-8 py-4 rounded-2xl absolute top-20  right-12 max-sm:right-5.5 border-1 border-white'>
                 <h1 className="text-3xl font-bold text-center">Register</h1>
                 <form onSubmit={handleRegister}>
                     <fieldset className="fieldset">

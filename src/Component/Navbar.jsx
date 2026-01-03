@@ -31,9 +31,21 @@ const Navbar = () => {
             });
     }
 
+    const Links = <>
+        <li><NavLink to="/" className="nav-link font-semibold"> Home</NavLink></li>
+        <li><NavLink to="/all-books" className="nav-link font-semibold"> All books</NavLink></li>
+
+        {user && <>
+            <li><NavLink to="/add-books" className="nav-link font-semibold"> Add Books</NavLink></li>
+            <li><NavLink to="/my-books" className="nav-link font-semibold"> My Books</NavLink></li>
+        </>}
+        <li><NavLink to="/about" className="nav-link font-semibold">About</NavLink></li>
+
+    </>
+
     return (
-        <div className=' bg-base-500 shadow-lg'>
-            <div className="navbar container mx-auto">
+        <div className='sticky top-0 z-50 bg-base-300'>
+            <div className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,10 +54,7 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-blue-500">
-                            <li><NavLink to="/" className="nav-link font-semibold"> Home</NavLink></li>
-                            <li><NavLink to="/all-books" className="nav-link font-semibold"> All books</NavLink></li>
-                            <li><NavLink to="/add-books" className="nav-link font-semibold"> Add Books</NavLink></li>
-                            <li><NavLink to="/my-books" className="nav-link font-semibold"> My Books</NavLink></li>
+                            {Links}
                         </ul>
                     </div>
                     <Link to="/"><img className="w-8 mr-2 rounded-sm" src={logo} alt="" /></Link>
@@ -53,11 +62,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-blue-500 text-md">
-                        <li><NavLink to="/" className="nav-link font-bold "> Home</NavLink></li>
-                        <li><NavLink to="/all-books" className="nav-link font-bold"> All books</NavLink></li>
-                        <li><NavLink to="/add-books" className="nav-link font-bold"> Add Books</NavLink></li>
-                        <li><NavLink to="/my-books" className="nav-link font-bold"> My Books</NavLink></li>
-
+                        {Links}
                     </ul>
                 </div>
                 <div className="navbar-end">
