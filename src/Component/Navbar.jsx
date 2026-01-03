@@ -100,7 +100,8 @@ const Navbar = () => {
                                     <li className="text-sm font-bold">{user.displayName || 'New user'}</li>
                                     <li className="text-xs">{user.email}</li>
                                 </div>
-
+                                <li><NavLink to="/my-profile" className="nav-link font-semibold">My Profile</NavLink></li>
+                                <li><NavLink to="/dashboard" className="nav-link font-semibold">Dashboard</NavLink></li>
                                 <li>
                                     <button
                                         onClick={handleLogout}

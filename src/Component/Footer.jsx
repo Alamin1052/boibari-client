@@ -7,8 +7,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
     return (
-        <div className='bg-base-500 shadow-gray-800 shadow-2xl'>
-            <footer className="footer container mx-auto sm:footer-horizontal flex justify-between max-sm:flex-col  text-base-content p-10">
+        <div className='bg-base-500 shadow-gray-800 shadow-2xl max-sm:px-8'>
+            <footer className="footer container mx-auto sm:footer-horizontal flex justify-between max-sm:flex-col text-base-content py-10">
                 <aside className='flex flex-col max-sm:justify-center max-sm:items-center max-sm:mx-auto'>
                     <Link to="/"><img className="w-15 rounded-sm" src={logo} alt="" /></Link>
                     <Link to="/" className=" bg-linear-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent text-2xl font-extrabold">Boibari</Link>
